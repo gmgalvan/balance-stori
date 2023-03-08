@@ -1,0 +1,10 @@
+{
+    "DatabasePort": 5432,
+    "DataBaseHost": "localhost",
+    "MigrationsPath": "./migrations",
+    "SSLDatabaseMode": "disable",
+    "S3Bucket":"",
+    "TransactionsFile":"transactions.csv",
+    "EmailToSendBalance":"",
+    "EmailAddressFrom":""
+}

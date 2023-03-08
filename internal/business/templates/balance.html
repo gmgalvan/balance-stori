@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Financial summary</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        img.logo {
+            max-width: 200px;
+            height: auto;
+            display: block;
+            float: right;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+        .header {
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            text-align: left;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .debit {
+            color: #D90000;
+        }
+        .credit {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img class="logo" src="https://comunidadblogger.net/wp-content/uploads/2022/03/stori-logo.jpg" alt="Logo">
+        <div class="title">Financial Summary</div>
+    </div>
+
+    <table>
+        <tr>
+            <th>Month</th>
+            <th>Transactions</th>
+        </tr>
+        {{ range $month, $transactions := .MonthTransactions }}
+        <tr>
+            <td>{{ $month }}</td>
+            <td>{{ $transactions }}</td>
+        </tr>
+        {{ end }}
+    </table>
+
+    <table>
+        <tr>
+            <th colspan="2">Average transactions</th>
+        </tr>
+        <tr>
+            <td>Average debit:</td>
+            <td class="debit">{{ .AverageDebitAmout }}</td>
+        </tr>
+        <tr>
+            <td>Average credit:</td>
+            <td class="credit">{{ .AverageCreditAmount }}</td>
+        </tr>
+    </table>
+
+    <div class="title">
+        Total balance: {{ .TotalBalance }}
+    </div>
+</body>
+</html>
